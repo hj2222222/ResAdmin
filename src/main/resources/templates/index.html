@@ -1,10 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>캐치테이블_식당 관리자</title>
-</head>
+<!-- head.html -->
+<div th:replace="fragment/head :: head"></div>
+<!-- head.html 끝 -->
 <body>
-
+<!-- header.html -->
+<div th:replace="fragment/header :: header"></div>
+<!-- header.html 끝-->
+<div class="wrapper">
+    <!-- aside.html 시작 -->
+    <div th:replace="fragment/aside :: aside"></div>
+    <!-- aside.html 끝 -->
+    <section class="content" style="padding-top: 0;">
+        <div class="main-stats row">
+            <div class="main-stats__stat col-lg-3 col-md-12 col-sm-12" style="padding-bottom: 0;">
+                <h3 class="stat__title">
+                    <a href="/salesStatus" style="text-decoration: none; color: #9a9a9a;">Total balance</a>
+                </h3>
+                <div class="stat__number"><span>$</span> 124,057</div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar--skyblue" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%; background-color: #b2b5ff;" ></div>
+                </div>
+                <p class="stat__details">
+                    <i class="icon pe-7s-angle-up color--skyblue"></i>
+                    <strong>27%</strong> more than last month
+                </p>
+            </div>
+            <div class="main-stats__stat col-lg-3 col-md-12 col-sm-12" style="padding-bottom: 0;">
+                <h3 class="stat__title"><a href="/reservation" style="text-decoration: none; color: #9a9a9a;">New Reservation</a></h3>
+                <div class="stat__number"><span>R</span> 7,068</div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar--anzac" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%; background-color: #ff9c4b;"></div>
+                </div>
+                <p class="stat__details">
+                    <i class="icon pe-7s-angle-down color--anzac"></i>
+                    <strong>15%</strong> less than last month
+                </p>
+            </div>
+            <div class="main-stats__stat col-lg-3 col-md-12 col-sm-12" style="padding-bottom: 0;">
+                <h3 class="stat__title" style="margin-bottom: 16px;"><a href="/notice" style="text-decoration: none; color: #9a9a9a;">Notice</a></h3>
+                <div style="display: flex;
+					font-size: 11px; color: black; margin-bottom: 9px; ">
+                    <div style="font-weight: bold;">[필독] 캐치테이블 이용약관 개정 안내</div>
+                    <div style="margin-left: auto;">2022-12-15</div>
+                </div>
+                <div style="display: flex;
+					font-size: 11px; color: black; margin-bottom: 9px; ">
+                    <div style="font-weight: bold;"><a href="/noticeReview" style="color: black; text-decoration: none; ">[공지] 노쇼 삼진 아웃 제도 & 노쇼아웃 플러스 제도 안내</a></div>
+                    <div style="margin-left: auto;">2022-12-21</div>
+                </div>
+                <div  style="display: flex;
+					font-size: 11px; color: black; margin-bottom: 9px; ">
+                    <div style="font-weight: bold;">[안내] 리뷰 게시판의 신고/차단 기준 안내</div>
+                    <div style="margin-left: auto;">2022-12-15</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8 col-lg-7">
+            <div class="card shadow mb-4">
+                <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Sales Status By Month</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-area">
+                        <canvas id="myAreaChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!--footer.html 시작-->
+<div th:replace="fragment/footer :: footer"></div>
+<!--footer.html 끝-->
 </body>
 </html>

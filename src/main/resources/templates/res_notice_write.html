@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<!-- head.html -->
+<div th:replace="fragment/head :: head"></div>
+<!-- head.html 끝 -->
+<body>
+
+<!-- header.html -->
+<div th:replace="fragment/header :: header"></div>
+<!-- header.html 끝-->
+	<div class="wrapper">
+		<!-- aside.html 시작 -->
+		<div th:replace="fragment/aside :: aside"></div>
+		<!-- aside.html 끝 -->
+
+		<section class="content">
+
+		<div class="row">
+
+			<div class="col-md-12">
+				<article class="widget">
+					<header class="widget__header">
+						<h3 class="widget__title">공지사항 작성</h3>
+						
+					</header>
+
+					<div class="widget__content">
+						<input type="text" class="input-text" placeholder="공지사항 제목"  style="    padding-left: 12px;"/>
+
+						<textarea class="textarea" rows="6" placeholder="공지사항 내용" style="padding-left: 12px; height: 500px;"></textarea>
+
+						<div style="width: 100%;">
+							<div style="text-align: right;">
+								<a href="/resNotice" class="btn cyan small" style="margin: 0;">뒤로가기</a>
+								<a href="/resNotice" class="btn red small" style="margin: 0;">입력완료</a>
+							</div>
+						</div>
+					</div>
+
+				</article>
+			</div>
+		</div>
+
+	</section> <!-- /content -->
+	
+</div> <!-- /wrapper -->
+
+<!--footer.html 시작-->
+<div th:replace="fragment/footer :: footer"></div>
+<!--footer.html 끝-->
+
+
+</body>
+</html>

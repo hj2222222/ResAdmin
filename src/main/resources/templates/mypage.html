@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<!-- head.html -->
+<div th:replace="fragment/head :: head"></div>
+<!-- head.html 끝 -->
+<body>
+<!-- header.html -->
+<div th:replace="fragment/header :: header"></div>
+<!-- header.html 끝-->
+	<div class="wrapper">
+		<!-- aside.html 시작 -->
+		<div th:replace="fragment/aside :: aside"></div>
+		<!-- aside.html 끝 -->
+		<section class="content">
+		<div class="row">
+			<div class="col-md-12"> 
+				<article class="widget">
+					<header class="widget__header">
+						<h3 class="widget__title" style="font-size: 21px;
+                        font-weight: bold;">마이페이지</h3>
+					</header>
+					<div class="widget__content">
+						<input type="text" class="input-text" placeholder="식당 이름"  style="    padding-left: 12px;"/>
+						<input type="text" class="input-text" placeholder="식당 주소"  style="    padding-left: 12px;"/>
+						<div class="dropdown">
+							<select name="one" class="dropdown-select">
+								<option value="">식당 카테고리</option>
+								<option value="1">스시오마카세</option>
+								<option value="2">한우오마카세</option>
+								<option value="3">스테이크</option>
+                                <option value="3">한식</option>
+                                <option value="3">소고기구이</option>
+							</select>
+						</div>
+                        <input type="text" class="input-text" placeholder="식당 전화번호"  style="    padding-left: 12px; margin-top: 10px;"/>
+						<input type="text" class="input-text" placeholder="영업 시간"  style="    padding-left: 12px;"/>
+                        <input type="text" class="input-text" placeholder="정기 휴무"  style="    padding-left: 12px;"/>
+						<textarea class="textarea" rows="6" placeholder="식당 소개" style="padding-left: 12px;"></textarea>
+						<div style="width: 100%;">
+							<div style="text-align: right;">
+								<a href="/myModify" class="btn cyan small" style="margin: 0;color: white">비밀번호 변경</a>
+								<a href="/mypage" class="btn red small" style="margin: 0;color: white">저장하기</a>
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section> <!-- /content -->
+</div> <!-- /wrapper -->
+<!--footer.html 시작-->
+<div th:replace="fragment/footer :: footer"></div>
+<!--footer.html 끝-->
+</body>
+</html>

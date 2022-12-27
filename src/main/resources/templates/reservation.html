@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- head.html -->
+<div th:replace="fragment/head :: head"></div>
+<!-- head.html 끝 -->
+
+<body id="page-top">
+<!-- header.html -->
+<div th:replace="fragment/header :: header"></div>
+<!-- header.html 끝-->
+	<div class="wrapper">
+
+        <!-- aside.html 시작 -->
+        <div th:replace="fragment/aside :: aside"></div>
+        <!-- aside.html 끝 -->
+		
+
+		<section class="content">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800" style="padding-bottom: 22px;
+                    font-weight: bold;">예약확인</h1>
+                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank"
+                            href="https://datatables.net">official DataTables documentation</a>.</p>                            -->
+                            <div>
+                                <div style="text-align: right;
+                                font-size: 22px;
+                                font-weight: bold;
+                                padding-bottom: 24px;
+                                color: #5a5c69;">
+                                <a href="" style="color: #5a5c69; text-decoration: none;">&lt;</a> 
+                                <a href="reservation_calender.html" style="color: #5a5c69; text-decoration: none;">12월 15일</a>
+                                <a href="" style="color: #5a5c69; text-decoration: none;">&gt;</a>
+                            </div>
+                            </div>
+                            <div>
+                                <div style="display: flex;">
+                                    <div style="font-size: 28px;
+                                    font-weight: bold;
+                                    color: gray;
+                                    padding-left: 17px;">10시</div>
+                                    <div class="col-md-3 col-sm-3" style="    flex-basis: 93%;
+                                    text-align: right;
+                                    padding-top: 9px;
+                                    max-width: 100%;">
+                                        <input type="checkbox" id="s2" class="sw" checked />
+                                        <label class="switch switch--violet" for="s2"></label>
+                                    </div>
+                                </div>
+                                <div style="width: 100%;
+                                border-bottom: 4px solid skyblue;
+                                margin-bottom: 12px;
+                                margin-top: 4px;" ></div>
+                                <div class="card shadow mb-4">
+                                    <div class="card-body" style="    padding-bottom: 0;">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <th style="border: none;width: 85px;">2</th>
+                                                        <td style="border: none;width: 170px;">홍길동</td>
+                                                        <td style="border: none;width: 245px;">2022-12-21 17시</td>
+                                                        <td style="border: none;width: 219px;">010-1111-1111</td>
+                                                        <td style="border: none;width: 131px;">4명</td>
+                                                        <th style="border: none;">새우 알레르기, 땅콩 알레르기</th>
+                                                        <th style="    padding: 0;
+                                                        border: none;
+                                                        text-align: center;
+                                                        width: 200px;">
+                                                            <a href="#" class="btn cyan small" style="margin: 0; color: white" id="link">예약확인</a>
+                                                            <a href="#" class="btn red small" style="margin: 0; color: white" id="open">예약취소</a>
+                                                            <button class="modal__open" value="0">모달열기</button>
+
+                                                        </th>
+                                                    </tr>   
+                                                </tbody>                                  
+                                        </table>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+
+                    <!-- DataTales Example -->
+                                <div class="card shadow mb-4">
+                                    <div class="card-body" style="    padding-bottom: 0;
+                                    padding-top: 17px;
+                                ">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <tbody>
+                                                <tr>
+                                                    <th style="border: none;width: 85px;">2</th>
+                                                    <td style="border: none;width: 170px;">홍길동</td>
+                                                    <td style="border: none;width: 245px;">2022-12-21 17시</td>
+                                                    <td style="border: none;width: 219px;">010-1111-1111</td>
+                                                    <td style="border: none;width: 131px;">4명</td>
+                                                    <th style="border: none;">새우 알레르기, 땅콩 알레르기</th>
+                                                    <th style="    padding: 0;
+                                                        border: none;
+                                                        text-align: center;
+                                                        width: 200px;">
+                                                        <a href="#" class="btn cyan small" style="margin: 0; color: white">예약확인</a>
+                                                        <a href="#" class="btn red small modal__open" style="margin: 0; color: white" id="open">예약취소</a>
+                                                    </th>
+                                                </tr>
+                                                </tbody>                                  
+                                        </table>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card shadow mb-4">
+                                    <div class="card-body" style="padding-bottom: 0;padding-top: 17px;">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <tbody>
+                                                <tr>
+                                                    <th style="border: none;width: 85px;">2</th>
+                                                    <td style="border: none;width: 170px;">홍길동</td>
+                                                    <td style="border: none;width: 245px;">2022-12-21 17시</td>
+                                                    <td style="border: none;width: 219px;">010-1111-1111</td>
+                                                    <td style="border: none;width: 131px;">4명</td>
+                                                    <th style="border: none;">새우 알레르기, 땅콩 알레르기</th>
+                                                    <th style="    padding: 0;
+                                                        border: none;
+                                                        text-align: center;
+                                                        width: 200px;">
+                                                        <a href="#" class="btn cyan small" style="margin: 0; color: white">예약확인</a>
+                                                        <a href="#" class="btn red small modal__open" style="margin: 0; color: white" id="open">예약취소</a>
+                                                    </th>
+                                                </tr>
+                                                </tbody>                                  
+                                        </table>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div style="    margin-top: 31px;">
+                                <div style="display: flex;">
+                                    <div style="font-size: 28px;
+                                    font-weight: bold;
+                                    color: gray;
+                                    padding-left: 17px;">11시</div>
+                                    <div class="col-md-3 col-sm-3" style="    flex-basis: 93%;
+                                    text-align: right;
+                                    padding-top: 9px;
+                                    max-width: 100%;">
+                                        <input type="checkbox" id="s3" class="sw" checked />
+                                        <label class="switch switch--violet" for="s3"></label>
+                                    </div>
+                                </div>
+                                <div style="width: 100%;
+                                border-bottom: 4px solid skyblue;
+                                margin-bottom: 12px;
+                                margin-top: 4px;" ></div>
+                                <div class="card shadow mb-4">
+                                    <div class="card-body"  style="    padding-bottom: 0;">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <tbody>
+                                                <tr>
+                                                    <th style="border: none;width: 85px;">2</th>
+                                                    <td style="border: none;width: 170px;">홍길동</td>
+                                                    <td style="border: none;width: 245px;">2022-12-21 17시</td>
+                                                    <td style="border: none;width: 219px;">010-1111-1111</td>
+                                                    <td style="border: none;width: 131px;">4명</td>
+                                                    <th style="border: none;">새우 알레르기, 땅콩 알레르기</th>
+                                                    <th style="    padding: 0;
+                                                        border: none;
+                                                        text-align: center;
+                                                        width: 200px;">
+                                                        <a href="#" class="btn cyan small" style="margin: 0; color: white">예약확인</a>
+                                                        <a href="#" class="btn red small" style="margin: 0; color: white" id="open">예약취소</a>
+                                                    </th>
+                                                </tr>
+                                                </tbody>                                  
+                                        </table>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+
+                    <!-- DataTales Example -->
+                                <div class="card shadow mb-4" >
+                                    <div class="card-body" style="    padding-bottom: 0;
+                                    padding-top: 17px;
+                                ">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <tbody>
+                                                <tr>
+                                                    <th style="border: none;width: 85px;">2</th>
+                                                    <td style="border: none;width: 170px;">홍길동</td>
+                                                    <td style="border: none;width: 245px;">2022-12-21 17시</td>
+                                                    <td style="border: none;width: 219px;">010-1111-1111</td>
+                                                    <td style="border: none;width: 131px;">4명</td>
+                                                    <th style="border: none;">새우 알레르기, 땅콩 알레르기</th>
+                                                    <th style="    padding: 0;
+                                                        border: none;
+                                                        text-align: center;
+                                                        width: 200px;">
+                                                        <a href="#" class="btn cyan small" style="margin: 0; color: white">예약확인</a>
+                                                        <a href="#" class="btn red small" style="margin: 0; color: white" id="open">예약취소</a>
+                                                    </th>
+                                                </tr>
+                                                </tbody>                                  
+                                        </table>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card shadow mb-4">
+                                    <div class="card-body" style="padding-bottom: 0;padding-top: 17px;">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <tbody>
+                                                <tr>
+                                                    <th style="border: none;width: 85px;">2</th>
+                                                    <td style="border: none;width: 170px;">홍길동</td>
+                                                    <td style="border: none;width: 245px;">2022-12-21 17시</td>
+                                                    <td style="border: none;width: 219px;">010-1111-1111</td>
+                                                    <td style="border: none;width: 131px;">4명</td>
+                                                    <th style="border: none;">새우 알레르기, 땅콩 알레르기</th>
+                                                    <th style="    padding: 0;
+                                                        border: none;
+                                                        text-align: center;
+                                                        width: 200px;">
+                                                        <a href="#" class="btn cyan small" style="margin: 0; color: white">예약확인</a>
+                                                        <a href="#" class="btn red small" style="margin: 0; color: white" id="open">예약취소</a>
+                                                    </th>
+                                                </tr>
+                                                </tbody>                                  
+                                        </table>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.container-fluid -->
+                    </div>
+                    <!-- End of Main Content -->
+                </div>
+                <!-- End of Content Wrapper -->
+            </div>
+
+    <!-- End of Page Wrapper -->
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup">
+        <div class="header">
+            취소 사유 입력
+        <img class="close-icon" src="./images/close.png">
+        </div>
+        <div class="widget__content contents">
+            <h3 class="widget__title" style="    padding-left: 15px;">이메론</h3>
+            <p style="    padding-left: 15px;">예약자 번호 : 02-1234-1234</p>
+            <p style="    padding-left: 15px;">예약 날짜 및 시간 : 2022-12-22 15시</p>
+            <fieldset style="    padding-left: 15px;">
+                <div style="    margin-top: 13px;
+                font-size: 17px;
+                color: gray;
+                font-weight: bold;
+                margin-bottom: 13px;
+                ;">
+                    취소 사유 선택
+                    <div style="border-bottom: 1px solid;
+                    width: 95%; margin-top: 11px;"></div>
+                </div>
+            
+                <div>
+                  <input type="radio" id="" name="" value=""
+                         >
+                  <label for="" style="color: gray;">노쇼</label>
+                </div>
+                <div>
+                  <input type="radio" id="dewey" name="drone" value="dewey">
+                  <label for="dewey" style="color: gray;">취소 사유 입력
+                    <input type="text" name="" id="" placeholder="취소 사유를 입력해주세요" style=" height: 35px; border: 1px solid gray;">
+                  </label>
+                </div>
+            </fieldset>
+                <div style="    text-align: center;
+                margin-top: 115px;">
+                    
+                    <a href="reservation_cancel.html" class="btn red small" style="margin: 0;" id="open">취소하기</a>
+                </div>
+        </div>
+    </div>
+
+    <script src="js/popup.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="chart.js/Chart.min.js"></script>
+    <script src="js_demo/demo/chart-area-demo.js"></script>
+    <script src="js_demo/demo/chart-pie-demo.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="amcharts/amcharts.js"></script>
+    <script type="text/javascript" src="amcharts/serial.js"></script>
+    <script type="text/javascript" src="amcharts/pie.js"></script>
+    <script type="text/javascript" src="js/chart.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script src="jquery-jvectormap-1.2.2/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="jquery-jvectormap-1.2.2/jquery-jvectormap-us-aea-en.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
