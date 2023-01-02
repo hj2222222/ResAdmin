@@ -18,28 +18,19 @@
 					<header class="widget__header">
 						<h3 class="widget__title">메뉴 추가</h3>
 					</header>
+					<form>
 					<div class="widget__content">
-						<input type="text" class="input-text" placeholder="추가할 메뉴 이름"  style="    padding-left: 12px;"/>
-						<div class="dropdown">
-							<select name="one" class="dropdown-select">
-								<option value="">추가할 메뉴 카테고리</option>
-								<option value="1">스시오마카세</option>
-								<option value="2">한우오마카세</option>
-								<option value="3">스테이크</option>
-                                <option value="3">한식</option>
-                                <option value="3">소고기구이</option>
-							</select>
-						</div>
-						<input type="file" name="uploader" id="uploader">
-						<label for="uploader">사진 업로드</label>
-						<textarea class="textarea" rows="6" placeholder="메뉴 소개" style="padding-left: 12px;"></textarea>
+						<input type="text" class="input-text" id="meName" placeholder="추가할 메뉴 이름"  style="padding-left: 12px;"/>
+						<input type="text" class="input-text" id="mePrice" placeholder="가격"  style="padding-left: 12px;"/>
+						<textarea class="textarea" rows="6" id="meContent" placeholder="메뉴 소개" style="padding-left: 12px;"></textarea>
 						<div style="width: 100%;">
 							<div style="text-align: right;">
 								<a href="/menuLookUp" class="btn cyan small" style="margin: 0;color: white">뒤로가기</a>
-								<a href="/menuLookUp" class="btn red small" style="margin: 0;color: white">메뉴추가</a>
+								<a id="menuBtn" class="btn red small" style="margin: 0;color: white">메뉴추가</a>
 							</div>
 						</div>
 					</div>
+					</form>
 				</article>
 			</div>
 		</div>
@@ -48,5 +39,6 @@
 <!--footer.html 시작-->
 <div th:replace="fragment/footer :: footer"></div>
 <!--footer.html 끝-->
+<script src="/js/menu.js"></script>
 </body>
 </html>

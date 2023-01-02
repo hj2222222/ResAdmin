@@ -17,32 +17,49 @@
 				<article class="widget">
 					<header class="widget__header">
 						<h3 class="widget__title" style="font-size: 21px;
-                        font-weight: bold;">마이페이지</h3>
+                        font-weight: bold;">식당정보 등록</h3>
 					</header>
-					<div class="widget__content">
-						<input type="text" class="input-text" placeholder="식당 이름"  style="    padding-left: 12px;"/>
-						<input type="text" class="input-text" placeholder="식당 주소"  style="    padding-left: 12px;"/>
-						<div class="dropdown">
-							<select name="one" class="dropdown-select">
-								<option value="">식당 카테고리</option>
-								<option value="1">스시오마카세</option>
-								<option value="2">한우오마카세</option>
-								<option value="3">스테이크</option>
-                                <option value="3">한식</option>
-                                <option value="3">소고기구이</option>
-							</select>
-						</div>
-                        <input type="text" class="input-text" placeholder="식당 전화번호"  style="    padding-left: 12px; margin-top: 10px;"/>
-						<input type="text" class="input-text" placeholder="영업 시간"  style="    padding-left: 12px;"/>
-                        <input type="text" class="input-text" placeholder="정기 휴무"  style="    padding-left: 12px;"/>
-						<textarea class="textarea" rows="6" placeholder="식당 소개" style="padding-left: 12px;"></textarea>
+					<form>
+						<div class="widget__content">
+							<input type="text" class="input-text" id="bisName" placeholder="식당 이름" style="padding-left: 12px;"/>
+							<input type="text" class="input-text" id="bisDesc" placeholder="한줄 소개" style="padding-left: 12px;"/>
+							<div class="dropdown">
+								<select name="one" class="dropdown-select" id="bisCategory">
+									<option value="식당 카테고리">식당 카테고리</option>
+									<option value="한정식">한정식</option>
+									<option value="육류,고기요리">육류,고기요리</option>
+									<option value="해물,생선요리">해물,생선욜리</option>
+									<option value="다이닝 바">다이닝 바</option>
+									<option value="한우오마카세">한우오마카세</option>
+									<option value="스시오마카세">스시오마카세</option>
+									<option value="카페">카페</option>
+								</select>
+							</div>
+							<input type="text" class="input-text" id="bisRegion" placeholder="지역"  style="    padding-left: 12px; margin-top: 10px;"/>
+							<input type="text" class="input-text" id="bisLunch" placeholder="점심 영업 시간"  style="    padding-left: 12px;"/>
+							<input type="text" class="input-text" id="bisDinner" placeholder="저녁 영업 시간"  style="    padding-left: 12px;"/>
+							<p>편의시설 :</p>
+								<label for="parking">주차 가능</label> <input id="parking" name="convenience" type="checkbox" value="주차 가능">&nbsp&nbsp
+								<label for="valet">발렛 가능</label> <input id="valet" name="convenience" type="checkbox" value="발렛 가능">&nbsp&nbsp
+								<label for="corkageFree">콜키지 프리</label> <input id="corkageFree" name="convenience" type="checkbox" value="콜키지 프리">&nbsp&nbsp
+								<label for="corkageAble">콜키지 가능</label> <input id="corkageAble" name="convenience" type="checkbox" value="콜키지 가능">&nbsp&nbsp
+								<label for="welcomKiz">웰컴키즈존</label> <input id="welcomKiz" name="convenience" type="checkbox" value="웰컴키즈존">&nbsp&nbsp
+								<label for="lettering">레터링</label> <input id="lettering" name="convenience" type="checkbox" value="레터링">&nbsp&nbsp
+								<label for="lent">대관 가능</label> <input id="lent" name="convenience" type="checkbox" value="대관 가능">&nbsp&nbsp
+								<label for="noKiz">노키즈존</label> <input id="noKiz" name="convenience" type="checkbox" value="노키즈존">&nbsp&nbsp
+								<label for="sommelier">전문 소믈리에</label> <input id="sommelier" name="convenience" type="checkbox" value="전문 소믈리에">&nbsp&nbsp
+								<label for="disabContent">장애인 편의시설</label> <input id="disabContent" name="convenience" type="checkbox" value="장애인 편의시설">&nbsp&nbsp
+								<label for="pet">반려동물 동반</label> <input id="pet" name="convenience" type="checkbox" value="반려동물 동반">
+
+<!--						<textarea class="textarea" rows="6" placeholder="식당 소개" style="padding-left: 12px;"></textarea>-->
 						<div style="width: 100%;">
 							<div style="text-align: right;">
 								<a href="/myModify" class="btn cyan small" style="margin: 0;color: white">비밀번호 변경</a>
-								<a href="/mypage" class="btn red small" style="margin: 0;color: white">저장하기</a>
+								<a id="bisBtn" class="btn red small" style="margin: 0;color: white">저장하기</a>
 							</div>
 						</div>
-					</div>
+						</div>
+					</form>
 				</article>
 			</div>
 		</div>
@@ -51,5 +68,6 @@
 <!--footer.html 시작-->
 <div th:replace="fragment/footer :: footer"></div>
 <!--footer.html 끝-->
+<script src="/js/bistro.js"></script>
 </body>
 </html>
