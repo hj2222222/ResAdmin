@@ -7,10 +7,12 @@ import com.catchmind.resadmin.model.network.request.MenuApiRequest;
 import com.catchmind.resadmin.model.network.response.MenuApiResponse;
 import com.catchmind.resadmin.service.MenuApiLogicService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/menu")    // http://localhost:8888/api/menu
@@ -46,5 +48,10 @@ public class MenuApiController extends CrudController<MenuApiRequest, MenuApiRes
     @Override
     public Header<MenuApiResponse> delete(Long id) {
         return super.delete(id);
+    }
+
+    @GetMapping("") // http://localhost:8888/api/menu?page=1
+    public Header<List<MenuApiResponse>> findAll(@PageableDefault(sort = {"meIdx"}, direction= Sort.Direction.DESC) Pageable pageable){
+        return menuApiLogicService.search(pageable);
     }
 }
