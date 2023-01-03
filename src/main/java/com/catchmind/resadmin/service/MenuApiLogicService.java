@@ -4,11 +4,17 @@ package com.catchmind.resadmin.service;
 import com.catchmind.resadmin.model.entity.Bistro;
 import com.catchmind.resadmin.model.entity.Menu;
 import com.catchmind.resadmin.model.network.Header;
+import com.catchmind.resadmin.model.network.Pagination;
 import com.catchmind.resadmin.model.network.request.MenuApiRequest;
 import com.catchmind.resadmin.model.network.response.MenuApiResponse;
 import com.catchmind.resadmin.repository.MenuRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -75,5 +81,19 @@ public class MenuApiLogicService extends BaseService<MenuApiRequest, MenuApiResp
 
     public Header<MenuApiResponse> delete(Long id) {
        return null;
+    }
+
+    public Header<List<MenuApiResponse>> search(Pageable pageable){
+        Page<Menu> menu = baseRepository.findAll(pageable);
+        List<MenuApiResponse> menuApiResponses =menu.stream().map(
+                user -> response(user)).collect(Collectors.toList());
+
+        Pagination pagination = Pagination.builder()
+                .totalPages(menu.getTotalPages())
+                .totalElements(menu.getTotalElements())
+                .currentPage(menu.getNumber())
+                .currentElements(menu.getNumberOfElements())
+                .build();
+        return Header.OK(menuApiResponses, pagination);
     }
 }
