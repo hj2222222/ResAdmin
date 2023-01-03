@@ -2226,8 +2226,8 @@ body {
 /* line 184, ../sass/partials/_layout.scss */
 .content {
   margin-left: 281px;
-  padding: 43px 110px 63px 37px;
-  overflow: auto;
+  padding: 43px 110px 100% 37px;
+  overflow: hidden;
 }
 
 /* line 191, ../sass/partials/_layout.scss */
@@ -2509,7 +2509,7 @@ body {
   position: relative;
   background: #f6f6f6;
   padding-bottom: 0;
-  overflow: auto;
+  /*overflow: auto;*/
 }
 /* line 423, ../sass/partials/_layout.scss */
 .tabs input[type=radio] {
@@ -2561,7 +2561,7 @@ body {
 }
 /* line 462, ../sass/partials/_layout.scss */
 .tabs__content > div {
-  position: absolute;
+  /*position: absolute;*/
   top: 0;
   left: 0;
   display: none;
@@ -5007,7 +5007,7 @@ label[for=uploader]:after {
   color: white;
 }
 .btn:active {
-  top: 4px; 
+  top: 4px;
 }
 
 /* color classes for .btn */
