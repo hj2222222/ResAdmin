@@ -2490,8 +2490,9 @@ body {
   color: #9a9a9a;
   /*font-size: 12px;*/
   /*line-height: 18px;*/
-  font-size: 14px;
+  font-size: 15px;
   line-height: 22px;
+  padding-top: 6px;
 }
 
 /* line 411, ../sass/partials/_layout.scss */
@@ -3819,7 +3820,7 @@ input:checked + .switch--violet {
 
 /* line 224, ../sass/partials/_modules.scss */
 input:checked + .switch--orange {
-  background: #ff9c4b;
+  background: #898989;
 }
 
 /* line 225, ../sass/partials/_modules.scss */
