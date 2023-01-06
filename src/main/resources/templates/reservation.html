@@ -2,6 +2,24 @@
 <html lang="en">
 <!-- head.html -->
 <div th:replace="fragment/head :: head"></div>
+<style>
+    .col-md-7 {
+        width:100%;
+    }
+
+    .tabs label{
+        display: block;
+    }
+    .time {
+        line-height: 27px;
+        margin-right: 13px;
+    }
+    .res_list {
+        display: flex;
+        justify-content: space-between;
+        line-height: 33px;
+    }
+</style>
 <!-- head.html 끝 -->
 
 <body id="page-top">
@@ -13,270 +31,348 @@
         <!-- aside.html 시작 -->
         <div th:replace="fragment/aside :: aside"></div>
         <!-- aside.html 끝 -->
-		
-
-		<section class="content">
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-            <!-- Main Content -->
-            <div id="content">
-                <!-- Topbar -->
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800" style="padding-bottom: 22px;
-                    font-weight: bold;">예약확인</h1>
-                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>                            -->
-                            <div>
-                                <div style="text-align: right;
-                                font-size: 22px;
-                                font-weight: bold;
-                                padding-bottom: 24px;
-                                color: #5a5c69;">
-                                <a href="" style="color: #5a5c69; text-decoration: none;">&lt;</a> 
-                                <a href="reservation_calender.html" style="color: #5a5c69; text-decoration: none;">12월 15일</a>
-                                <a href="" style="color: #5a5c69; text-decoration: none;">&gt;</a>
-                            </div>
-                            </div>
-                            <div>
-                                <div style="display: flex;">
-                                    <div style="font-size: 28px;
-                                    font-weight: bold;
-                                    color: gray;
-                                    padding-left: 17px;">10시</div>
-                                    <div class="col-md-3 col-sm-3" style="    flex-basis: 93%;
-                                    text-align: right;
-                                    padding-top: 9px;
-                                    max-width: 100%;">
-                                        <input type="checkbox" id="s2" class="sw" checked />
-                                        <label class="switch switch--violet" for="s2"></label>
-                                    </div>
-                                </div>
-                                <div style="width: 100%;
-                                border-bottom: 4px solid skyblue;
-                                margin-bottom: 12px;
-                                margin-top: 4px;" ></div>
-                                <div class="card shadow mb-4">
-                                    <div class="card-body" style="    padding-bottom: 0;">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <th style="border: none;width: 85px;">2</th>
-                                                        <td style="border: none;width: 170px;">홍길동</td>
-                                                        <td style="border: none;width: 245px;">2022-12-21 17시</td>
-                                                        <td style="border: none;width: 219px;">010-1111-1111</td>
-                                                        <td style="border: none;width: 131px;">4명</td>
-                                                        <th style="border: none;">새우 알레르기, 땅콩 알레르기</th>
-                                                        <th style="    padding: 0;
-                                                        border: none;
-                                                        text-align: center;
-                                                        width: 200px;">
-                                                            <a href="#" class="btn cyan small" style="margin: 0; color: white" id="link">예약확인</a>
-                                                            <a href="#" class="btn red small" style="margin: 0; color: white" id="open">예약취소</a>
-                                                            <button class="modal__open" value="0">모달열기</button>
-
-                                                        </th>
-                                                    </tr>   
-                                                </tbody>                                  
-                                        </table>
-                                        
-                                        </div>
-                                    </div>
-                                </div>
-
-                    <!-- DataTales Example -->
-                                <div class="card shadow mb-4">
-                                    <div class="card-body" style="    padding-bottom: 0;
-                                    padding-top: 17px;
-                                ">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                                <tbody>
-                                                <tr>
-                                                    <th style="border: none;width: 85px;">2</th>
-                                                    <td style="border: none;width: 170px;">홍길동</td>
-                                                    <td style="border: none;width: 245px;">2022-12-21 17시</td>
-                                                    <td style="border: none;width: 219px;">010-1111-1111</td>
-                                                    <td style="border: none;width: 131px;">4명</td>
-                                                    <th style="border: none;">새우 알레르기, 땅콩 알레르기</th>
-                                                    <th style="    padding: 0;
-                                                        border: none;
-                                                        text-align: center;
-                                                        width: 200px;">
-                                                        <a href="#" class="btn cyan small" style="margin: 0; color: white">예약확인</a>
-                                                        <a href="#" class="btn red small modal__open" style="margin: 0; color: white" id="open">예약취소</a>
-                                                    </th>
-                                                </tr>
-                                                </tbody>                                  
-                                        </table>
-                                        
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="card shadow mb-4">
-                                    <div class="card-body" style="padding-bottom: 0;padding-top: 17px;">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                                <tbody>
-                                                <tr>
-                                                    <th style="border: none;width: 85px;">2</th>
-                                                    <td style="border: none;width: 170px;">홍길동</td>
-                                                    <td style="border: none;width: 245px;">2022-12-21 17시</td>
-                                                    <td style="border: none;width: 219px;">010-1111-1111</td>
-                                                    <td style="border: none;width: 131px;">4명</td>
-                                                    <th style="border: none;">새우 알레르기, 땅콩 알레르기</th>
-                                                    <th style="    padding: 0;
-                                                        border: none;
-                                                        text-align: center;
-                                                        width: 200px;">
-                                                        <a href="#" class="btn cyan small" style="margin: 0; color: white">예약확인</a>
-                                                        <a href="#" class="btn red small modal__open" style="margin: 0; color: white" id="open">예약취소</a>
-                                                    </th>
-                                                </tr>
-                                                </tbody>                                  
-                                        </table>
-                                        
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
 
-                            <div style="    margin-top: 31px;">
-                                <div style="display: flex;">
-                                    <div style="font-size: 28px;
-                                    font-weight: bold;
-                                    color: gray;
-                                    padding-left: 17px;">11시</div>
-                                    <div class="col-md-3 col-sm-3" style="    flex-basis: 93%;
-                                    text-align: right;
-                                    padding-top: 9px;
-                                    max-width: 100%;">
-                                        <input type="checkbox" id="s3" class="sw" checked />
-                                        <label class="switch switch--violet" for="s3"></label>
-                                    </div>
-                                </div>
-                                <div style="width: 100%;
-                                border-bottom: 4px solid skyblue;
-                                margin-bottom: 12px;
-                                margin-top: 4px;" ></div>
-                                <div class="card shadow mb-4">
-                                    <div class="card-body"  style="    padding-bottom: 0;">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                                <tbody>
-                                                <tr>
-                                                    <th style="border: none;width: 85px;">2</th>
-                                                    <td style="border: none;width: 170px;">홍길동</td>
-                                                    <td style="border: none;width: 245px;">2022-12-21 17시</td>
-                                                    <td style="border: none;width: 219px;">010-1111-1111</td>
-                                                    <td style="border: none;width: 131px;">4명</td>
-                                                    <th style="border: none;">새우 알레르기, 땅콩 알레르기</th>
-                                                    <th style="    padding: 0;
-                                                        border: none;
-                                                        text-align: center;
-                                                        width: 200px;">
-                                                        <a href="#" class="btn cyan small" style="margin: 0; color: white">예약확인</a>
-                                                        <a href="#" class="btn red small" style="margin: 0; color: white" id="open">예약취소</a>
-                                                    </th>
-                                                </tr>
-                                                </tbody>                                  
-                                        </table>
-                                        
-                                        </div>
-                                    </div>
-                                </div>
-
-                    <!-- DataTales Example -->
-                                <div class="card shadow mb-4" >
-                                    <div class="card-body" style="    padding-bottom: 0;
-                                    padding-top: 17px;
-                                ">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                                <tbody>
-                                                <tr>
-                                                    <th style="border: none;width: 85px;">2</th>
-                                                    <td style="border: none;width: 170px;">홍길동</td>
-                                                    <td style="border: none;width: 245px;">2022-12-21 17시</td>
-                                                    <td style="border: none;width: 219px;">010-1111-1111</td>
-                                                    <td style="border: none;width: 131px;">4명</td>
-                                                    <th style="border: none;">새우 알레르기, 땅콩 알레르기</th>
-                                                    <th style="    padding: 0;
-                                                        border: none;
-                                                        text-align: center;
-                                                        width: 200px;">
-                                                        <a href="#" class="btn cyan small" style="margin: 0; color: white">예약확인</a>
-                                                        <a href="#" class="btn red small" style="margin: 0; color: white" id="open">예약취소</a>
-                                                    </th>
-                                                </tr>
-                                                </tbody>                                  
-                                        </table>
-                                        
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="card shadow mb-4">
-                                    <div class="card-body" style="padding-bottom: 0;padding-top: 17px;">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                                <tbody>
-                                                <tr>
-                                                    <th style="border: none;width: 85px;">2</th>
-                                                    <td style="border: none;width: 170px;">홍길동</td>
-                                                    <td style="border: none;width: 245px;">2022-12-21 17시</td>
-                                                    <td style="border: none;width: 219px;">010-1111-1111</td>
-                                                    <td style="border: none;width: 131px;">4명</td>
-                                                    <th style="border: none;">새우 알레르기, 땅콩 알레르기</th>
-                                                    <th style="    padding: 0;
-                                                        border: none;
-                                                        text-align: center;
-                                                        width: 200px;">
-                                                        <a href="#" class="btn cyan small" style="margin: 0; color: white">예약확인</a>
-                                                        <a href="#" class="btn red small" style="margin: 0; color: white" id="open">예약취소</a>
-                                                    </th>
-                                                </tr>
-                                                </tbody>                                  
-                                        </table>
-                                        
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.container-fluid -->
+        <section class="content">
+            <div class="row" style="display: block">
+                <div>
+                    <div style="text-align: right;
+                    font-size: 22px;
+                    font-weight: bold;
+                    padding-bottom: 24px;
+                    color: #5a5c69;
+                    padding-right: 18px;">
+                        <a href="" style="color: #5a5c69; text-decoration: none;">&lt;</a>
+                        <a href="reservation_calander.html" style="color: #5a5c69; text-decoration: none;">12월 15일</a>
+                        <a href="" style="color: #5a5c69; text-decoration: none;">&gt;</a>
                     </div>
-                    <!-- End of Main Content -->
                 </div>
-                <!-- End of Content Wrapper -->
-            </div>
+                <div class="col-md-7" style="max-width: 100%">
+                    <article class="widget widget--tabbed">
+                        <div class="tabs">
+                            <!-- <div class="number-entries">
+                                <input class="spinner" name="value" value="3" />
+                            </div> -->
+                            <input type="radio" name="t" id="tab1" checked>
+                            <label for="tab1" class="tabs__tab" style="display: flex;">
+                                <div class="time">10시</div>
+                                <input type="checkbox" id="s1" class="sw" checked />
+                                <label class="switch switch--orange" for="s1" ></label>
+                            </label>
+                            <input type="radio" name="t" id="tab2">
+                            <label for="tab2" class="tabs__tab"style="display: flex;">
+                                <div class="time">12시</div>
+                                <input type="checkbox" id="s2" class="sw" checked />
+                                <label class="switch switch--orange" for="s2"></label>
+                            </label>
+                            <input type="radio" name="t" id="tab3">
+                            <label for="tab3" class="tabs__tab" style="display: flex;">
+                                <div class="time">14시</div>
+                                <input type="checkbox" id="s3" class="sw" checked />
+                                <label class="switch switch--orange" for="s3"></label>
+                            </label>
+                            <input type="radio" name="t" id="tab4">
+                            <label for="tab4" class="tabs__tab"style="display: flex;">
+                                <div class="time">17시</div>
+                                <input type="checkbox" id="s4" class="sw" checked />
+                                <label class="switch switch--orange" for="s4"></label>
+                            </label>
+                            <input type="radio" name="t" id="tab5">
+                            <label for="tab5" class="tabs__tab"style="display: flex;">
+                                <div class="time">19시</div>
+                                <input type="checkbox" id="s5" class="sw" checked />
+                                <label class="switch switch--orange" for="s5"></label>
+                            </label>
+                            <input type="radio" name="t" id="tab6">
+                            <label for="tab6" class="tabs__tab"style="display: flex;">
+                                <div class="time">21시</div>
+                                <input type="checkbox" id="s6" class="sw" checked />
+                                <label class="switch switch--orange" for="s6"></label>
+                            </label>
+                            <div class="tabs__content">
+                                <div class="tabs__content--1"id="tabs__content--1" style=" min-width: 100%;">
+
+                                    <div class="media social_msg">
+                                        <div>
+                                            <div class="res_list" >
+                                                <div>2</div>
+                                                <div>홍길동</div>
+                                                <div>2022-12-21 17시</div>
+                                                <div>010-1111-1111</div>
+                                                <div>4명</div>
+                                                <div>새우 알레르기, 땅콩 알레르기</div>
+                                                <div style="    padding: 0;
+                                                border: none;
+                                                text-align: center;
+                                                ">
+                                                    <!-- <button id="link">Redirect to Utopian</button> -->
+                                                    <a href="#" class="btn cyan small" style="margin: 0;" id="link">예약확인</a>
+                                                    <a href="#" class="btn red small" style="margin: 0;" id="open">예약취소</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- /social-msg -->
+                                    <div class="media social_msg">
+                                        <div>
+                                            <div class="res_list">
+                                                <div>2</div>
+                                                <div>홍길동</div>
+                                                <div>2022-12-21 17시</div>
+                                                <div>010-1111-1111</div>
+                                                <div>4명</div>
+                                                <div>새우 알레르기, 땅콩 알레르기</div>
+                                                <div style="    padding: 0;
+                                                border: none;
+                                                text-align: center;
+                                                ">
+                                                    <!-- <button id="link">Redirect to Utopian</button> -->
+                                                    <a href="#" class="btn cyan small" style="margin: 0;" id="link">예약확인</a>
+                                                    <a href="#" class="btn red small" style="margin: 0;" id="open">예약취소</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- /social-msg -->
+
+                                </div> <!-- /tabs__content 1 -->
+
+                                <div class="tabs__content--2"id="tabs__content--2"style=" min-width: 100%;">
+                                    <div class="media social_msg">
+                                        <div>
+                                            <div class="res_list" >
+                                                <div>2</div>
+                                                <div>반하나</div>
+                                                <div>2022-12-21 17시</div>
+                                                <div>010-1111-1111</div>
+                                                <div>4명</div>
+                                                <div>새우 알레르기, 땅콩 알레르기</div>
+                                                <div style="    padding: 0;
+                                                border: none;
+                                                text-align: center;
+                                                ">
+                                                    <!-- <button id="link">Redirect to Utopian</button> -->
+                                                    <a href="#" class="btn cyan small" style="margin: 0;" id="link">예약확인</a>
+                                                    <a href="#" class="btn red small" style="margin: 0;" id="open">예약취소</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- /social-msg -->
+                                    <div class="media social_msg">
+                                        <div>
+                                            <div class="res_list">
+                                                <div>2</div>
+                                                <div>반하나</div>
+                                                <div>2022-12-21 17시</div>
+                                                <div>010-1111-1111</div>
+                                                <div>4명</div>
+                                                <div>새우 알레르기, 땅콩 알레르기</div>
+                                                <div style="    padding: 0;
+                                                border: none;
+                                                text-align: center;
+                                                ">
+                                                    <!-- <button id="link">Redirect to Utopian</button> -->
+                                                    <a href="#" class="btn cyan small" style="margin: 0;" id="link">예약확인</a>
+                                                    <a href="#" class="btn red small" style="margin: 0;" id="open">예약취소</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- /social-msg -->
+
+
+                                </div> <!-- /tabs__content 2 -->
+
+                                <div class="tabs__content--3"id="tabs__content--3"style=" min-width: 100%;">
+                                    <div class="media social_msg">
+                                        <div>
+                                            <div class="res_list" >
+                                                <div>2</div>
+                                                <div>오렌지</div>
+                                                <div>2022-12-21 17시</div>
+                                                <div>010-1111-1111</div>
+                                                <div>4명</div>
+                                                <div>새우 알레르기, 땅콩 알레르기</div>
+                                                <div style="    padding: 0;
+                                                border: none;
+                                                text-align: center;
+                                                ">
+                                                    <!-- <button id="link">Redirect to Utopian</button> -->
+                                                    <a href="#" class="btn cyan small" style="margin: 0;" id="link">예약확인</a>
+                                                    <a href="#" class="btn red small" style="margin: 0;" id="open">예약취소</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- /social-msg -->
+                                    <div class="media social_msg">
+                                        <div>
+                                            <div class="res_list">
+                                                <div>2</div>
+                                                <div>오렌지</div>
+                                                <div>2022-12-21 17시</div>
+                                                <div>010-1111-1111</div>
+                                                <div>4명</div>
+                                                <div>새우 알레르기, 땅콩 알레르기</div>
+                                                <div style="    padding: 0;
+                                                border: none;
+                                                text-align: center;
+                                                ">
+                                                    <!-- <button id="link">Redirect to Utopian</button> -->
+                                                    <a href="#" class="btn cyan small" style="margin: 0;" id="link">예약확인</a>
+                                                    <a href="#" class="btn red small" style="margin: 0;" id="open">예약취소</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- /social-msg -->
+
+
+                                </div> <!-- /tabs__content 3 -->
+
+                                <div class="tabs__content--4"id="tabs__content--4"style=" min-width: 100%;">
+                                    <div class="media social_msg">
+                                        <div>
+                                            <div class="res_list" >
+                                                <div>2</div>
+                                                <div>김사과과</div>
+                                                <div>2022-12-21 17시</div>
+                                                <div>010-1111-1111</div>
+                                                <div>4명</div>
+                                                <div>새우 알레르기, 땅콩 알레르기</div>
+                                                <div style="    padding: 0;
+                                                border: none;
+                                                text-align: center;
+                                                ">
+                                                    <!-- <button id="link">Redirect to Utopian</button> -->
+                                                    <a href="#" class="btn cyan small" style="margin: 0;" id="link">예약확인</a>
+                                                    <a href="#" class="btn red small" style="margin: 0;" id="open">예약취소</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- /social-msg -->
+                                    <div class="media social_msg">
+                                        <div>
+                                            <div class="res_list">
+                                                <div>2</div>
+                                                <div>김사과</div>
+                                                <div>2022-12-21 17시</div>
+                                                <div>010-1111-1111</div>
+                                                <div>4명</div>
+                                                <div>새우 알레르기, 땅콩 알레르기</div>
+                                                <div style="    padding: 0;
+                                                border: none;
+                                                text-align: center;
+                                                ">
+                                                    <!-- <button id="link">Redirect to Utopian</button> -->
+                                                    <a href="#" class="btn cyan small" style="margin: 0;" id="link">예약확인</a>
+                                                    <a href="#" class="btn red small" style="margin: 0;" id="open">예약취소</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- /social-msg -->
+
+                                </div> <!-- /tabs__content 3 -->
+
+                                <div class="tabs__content--5" id="tabs__content--5"style=" min-width: 100%;">
+                                    <div class="media social_msg">
+                                        <div>
+                                            <div class="res_list" >
+                                                <div>2</div>
+                                                <div>배애리</div>
+                                                <div>2022-12-21 17시</div>
+                                                <div>010-1111-1111</div>
+                                                <div>4명</div>
+                                                <div>새우 알레르기, 땅콩 알레르기</div>
+                                                <div style="    padding: 0;
+                                                border: none;
+                                                text-align: center;
+                                                ">
+                                                    <!-- <button id="link">Redirect to Utopian</button> -->
+                                                    <a href="#" class="btn cyan small" style="margin: 0;" id="link">예약확인</a>
+                                                    <a href="#" class="btn red small" style="margin: 0;" id="open">예약취소</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- /social-msg -->
+                                    <div class="media social_msg">
+                                        <div>
+                                            <div class="res_list">
+                                                <div>2</div>
+                                                <div>배애리</div>
+                                                <div>2022-12-21 17시</div>
+                                                <div>010-1111-1111</div>
+                                                <div>4명</div>
+                                                <div>새우 알레르기, 땅콩 알레르기</div>
+                                                <div style="    padding: 0;
+                                                border: none;
+                                                text-align: center;
+                                                ">
+                                                    <!-- <button id="link">Redirect to Utopian</button> -->
+                                                    <a href="#" class="btn cyan small" style="margin: 0;" id="link">예약확인</a>
+                                                    <a href="#" class="btn red small" style="margin: 0;" id="open">예약취소</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- /social-msg -->
+
+
+                                </div> <!-- /tabs__content 2 -->
+
+                                <div class="tabs__content--6" id="tabs__content--6"style=" min-width: 100%;">
+                                    <div class="media social_msg">
+                                        <div>
+                                            <div class="res_list" >
+                                                <div>2</div>
+                                                <div>체리</div>
+                                                <div>2022-12-21 17시</div>
+                                                <div>010-1111-1111</div>
+                                                <div>4명</div>
+                                                <div>새우 알레르기, 땅콩 알레르기</div>
+                                                <div style="    padding: 0;
+                                                border: none;
+                                                text-align: center;
+                                                ">
+                                                    <!-- <button id="link">Redirect to Utopian</button> -->
+                                                    <a href="#" class="btn cyan small" style="margin: 0;" id="link">예약확인</a>
+                                                    <a href="#" class="btn red small" style="margin: 0;" id="open">예약취소</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- /social-msg -->
+                                    <div class="media social_msg">
+                                        <div>
+                                            <div class="res_list">
+                                                <div>2</div>
+                                                <div>체리</div>
+                                                <div>2022-12-21 17시</div>
+                                                <div>010-1111-1111</div>
+                                                <div>4명</div>
+                                                <div>새우 알레르기, 땅콩 알레르기</div>
+                                                <div style="    padding: 0;
+                                                border: none;
+                                                text-align: center;
+                                                ">
+                                                    <!-- <button id="link">Redirect to Utopian</button> -->
+                                                    <a href="#" class="btn cyan small" style="margin: 0;" id="link">예약확인</a>
+                                                    <a href="#" class="btn red small" style="margin: 0;" id="open">예약취소</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- /social-msg -->
+
+
+                                </div> <!-- /tabs__content 2 -->
+
+
+                            </div> <!-- /tabs__content CONTAINER -->
+
+                        </div> <!-- /widget__tabs -->
+
+                    </article>
+                </div>
+            </div> <!-- /row -->
+        </section> <!-- /content -->
 
     <!-- End of Page Wrapper -->
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <div class="popup">
         <div class="header">
@@ -335,5 +431,38 @@
     <script src="jquery-jvectormap-1.2.2/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="jquery-jvectormap-1.2.2/jquery-jvectormap-us-aea-en.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#tab1').click(function() {
+                $('#tabs__content--1').show().siblings('div').hide();
+            })
+        });
+        $(function() {
+            $('#tab2').click(function() {
+                $('#tabs__content--2').show().siblings('div').hide();
+            })
+        });
+        $(function() {
+            $('#tab3').click(function() {
+                $('#tabs__content--3').show().siblings('div').hide();
+            })
+        });
+        $(function() {
+            $('#tab4').click(function() {
+                $('#tabs__content--4').show().siblings('div').hide();
+            })
+        });
+        $(function() {
+            $('#tab5').click(function() {
+                $('#tabs__content--5').show().siblings('div').hide();
+            })
+        });
+        $(function() {
+            $('#tab6').click(function() {
+                $('#tabs__content--6').show().siblings('div').hide();
+            })
+        });
+
+    </script>
 </body>
 </html>

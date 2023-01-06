@@ -25,7 +25,7 @@ function sendit(){
         return false;
     }
 
-    fetch('http://localhost:8888/api/menu', {
+    fetch('http://localhost:9999/api/menu', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
