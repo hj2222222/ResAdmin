@@ -11,13 +11,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MenuApiResponse {
-    private Long meIdx;
+public class ResAdminApiResponse {
+    private String resaUserid;
+    private String resaUserpw;
+    private String resaName;
+    private String resaHp;
+    private String resaRegion;
     private String resaBisName;
-    private String meName;
-    private String meContent;
-    private String mePrice;
     private LocalDateTime regDate;
-    private LocalDateTime updateDate;
 
 }

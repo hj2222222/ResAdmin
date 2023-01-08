@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.bytebuddy.asm.Advice;
 
 import java.time.LocalDateTime;
 
@@ -11,12 +12,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MenuApiResponse {
-    private Long meIdx;
-    private String resaBisName;
-    private String meName;
-    private String meContent;
-    private String mePrice;
+public class ReviewApiResponse {
+    private Long revIdx;
+    private String revNick;
+    private String revPhoto;
+    private int revLike;
+    private String revContent;
+    private double revScore;
+
     private LocalDateTime regDate;
     private LocalDateTime updateDate;
 
