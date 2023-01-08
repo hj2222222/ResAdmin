@@ -58,6 +58,7 @@
 							<div class="tabs__content--1" style="width: 100%;"  v-for="dto in itemList">
 								<div class="media social_msg" style="display: flex;" >
 									<div class="media-body" style="    width: 735px; padding-top: 12px;" >
+										<p id="meIdx" style="display: none"> {{dto.meIdx}}</p>
 										<h4 class="media-heading social_msg__heading">{{dto.meName}}</h4>
 										<h2 class="media-heading social_msg__heading" style="font-size: 11px;     margin: 0;">{{dto.mePrice}}</h2>
 										<p class="social_msg__msg" style="padding-top: 13px;">{{dto.meContent}}</p>
@@ -66,9 +67,9 @@
 										<div style="margin-left: auto;
                                        width: 67px;
                                        margin-right: 58px;">
-											<a href="/menuModify" class="btn cyan small" style="margin: 0; margin-bottom: 10px; color: white;
-                                       ">메뉴 수정</a>
-											<a href="#" class="btn red small" style="margin: 0;color: white;
+											<button class="btn cyan small" style="margin: 0; margin-bottom: 10px; color: #ffffff;
+                                       " type="button" onclick="sendit()">메뉴 수정</button>
+											<a id="menuDelBtn" class="btn red small" style="margin: 0;color: white;
                                        ">메뉴 삭제</a>
 										</div>
 									</div>
@@ -100,7 +101,13 @@
 <script src="jquery-jvectormap-1.2.2/jquery-jvectormap-us-aea-en.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 <script src="/js/menu_list.js"></script>
+<script src="/js/menu_delete.js"></script>
 <script src="https://unpkg.com/vue@3"></script>
-
+<script>
+	function sendit(){
+		let love = document.getElementById('meIdx').innerText;
+		location.href='menuModify/'+love;
+	}
+</script>
 </body>
 </html>

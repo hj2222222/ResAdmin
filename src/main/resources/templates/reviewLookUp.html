@@ -61,17 +61,17 @@
 							</div> -->
 							<input type="radio" name="t" id="tab1" checked>
 							<label for="tab1" class="tabs__tab" style="margin: 0;">전체후기</label>
-							<div class="tabs__content" style="overflow-x: hidden;">
-								<div class="tabs__content--1">
-									<div class="media social_msg">
-										<figure class="pull-left rounded-image social_msg__img">
+							<div class="tabs__content" id="itemList" style="overflow-x: hidden;">
+								<div class="tabs__content--1" v-for="dto in itemList">
+									<div class="media social_msg" >
+										<figure class="pull-left rounded-image social_msg__img" >
 											<img class="media-object" src="images/review_img.jpg" alt="user">
 										</figure>
 										<div class="media-body">
-											<h4 class="media-heading social_msg__heading">홍길동</h4>
+											<h4 class="media-heading social_msg__heading">{{dto.revNick}}</h4>
 											<div class="__review-meta __review-meta--with-rating" style="width: 100%;">
 												<div class="__d-flex __v-center" style="justify-content: space-between;">
-													<a href="#" class="__rating __active" style="padding-bottom: 4px; text-decoration: none; color: black">4.8</a>
+													<a href="#" class="__rating __active" style="padding-bottom: 4px; text-decoration: none; color: black">{{dto.revScore}}</a>
 												</div>
 <!--												<div class="__rating-detail __d-flex">-->
 <!--													<div class="__item">맛 -->
@@ -85,11 +85,17 @@
 <!--													</div>-->
 <!--												</div>-->
 											</div>
-											<p class="social_msg__msg" style="    padding-top: 13px;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+											<p class="social_msg__msg" style="    padding-top: 13px;">{{dto.revContent}}</p>
+											<p class="social_msg__msg" style="    padding-top: 13px;">등록날짜 : {{dto.regDate}}</p>
 										</div>
 									</div> <!-- /social-msg -->
 								</div> <!-- /tabs__content 1 -->
+
 							</div> <!-- /tabs__content CONTAINER -->
+							<div id="showPage" class="card-header">
+								<i class="fas fa-table me-1"></i>
+								총 {{totalPages}}페이지 중 {{currentPage}}페이지
+							</div>
 						</div> <!-- /widget__tabs -->
 					</article>
 					</div>
@@ -108,5 +114,7 @@
 		<script src="jquery-jvectormap-1.2.2/jquery-jvectormap-1.2.2.min.js"></script>
 		<script src="jquery-jvectormap-1.2.2/jquery-jvectormap-us-aea-en.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
+		<script src="https://unpkg.com/vue@3"></script>
+		<script src="/js/review_lookUp.js"></script>
 	</body>
 	</html>

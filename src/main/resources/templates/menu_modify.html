@@ -19,24 +19,13 @@
 						<h3 class="widget__title">메뉴 수정</h3>
 					</header>
 					<div class="widget__content">
-						<input type="text" class="input-text" placeholder="메뉴 이름 수정" style="    padding-left: 12px;" />
-						<div class="dropdown">
-							<select name="one" class="dropdown-select">
-								<option value="">메뉴 카테고리 수정</option>
-								<option value="1">스시오마카세</option>
-								<option value="2">한우오마카세</option>
-								<option value="3">스테이크</option>
-                                <option value="3">한식</option>
-                                <option value="3">소고기구이</option>
-							</select>
-						</div>
-						<input type="file" name="uploader" id="uploader">
-						<label for="uploader">사진 업로드 수정</label>
-						<textarea class="textarea" rows="6" placeholder="메뉴 소개" style="    padding-left: 12px;"></textarea>
+						<input type="text" class="input-text" id="meName" th:field="${api.meName}" readonly style="    padding-left: 12px;" />
+						<input type="text" class="input-text" id="mePrice" th:field="${api.mePrice}" style="    padding-left: 12px;" />
+						<textarea class="textarea" rows="6" id="meContent" th:text="${api.meContent}" style="    padding-left: 12px;"></textarea>
 						<div style="width: 100%;">
 							<div style="text-align: right;">
 								<a href="/menuLookUp" class="btn cyan small" style="margin: 0; color: white">뒤로가기</a>
-								<a href="/menuLookUp" class="btn red small" style="margin: 0;color: white">수정완료</a>
+								<a id="menuMdfBtn" class="btn red small" style="margin: 0;color: white">수정완료</a>
 							</div>
 						</div>
 					</div>
@@ -48,5 +37,6 @@
 <!--footer.html 시작-->
 <div th:replace="fragment/footer :: footer"></div>
 <!--footer.html 끝-->
+<script src="/js/menu_modify.js"></script>
 </body>
 </html>

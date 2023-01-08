@@ -18,7 +18,7 @@ public class Header<T> {
     private Pagination pagination;
 
 
-    public static <T> Header<T> OK(){
+    public static <T> Header<T> Ok(){
         return (Header<T>)Header.builder().transactionTime(LocalDateTime.now())
                 .resultCode("OK").description("정상").build();
     }

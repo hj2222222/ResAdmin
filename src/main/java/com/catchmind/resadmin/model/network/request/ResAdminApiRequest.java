@@ -9,11 +9,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class MenuApiRequest {  // 프론트 > 백
-    private Long meIdx;
+public class ResAdminApiRequest {  // 프론트 > 백
+    private String resaUserid;
+    private String resaUserpw;
+    private String resaName;
+    private String resaHp;
+    private String resaRegion;
     private String resaBisName;
-    private String meName;
-    private String meContent;
-    private String mePrice;
 
 }

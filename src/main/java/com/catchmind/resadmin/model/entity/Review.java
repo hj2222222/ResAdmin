@@ -15,15 +15,15 @@ import javax.persistence.*;
 @ToString(callSuper = true)     //
 @EqualsAndHashCode(callSuper = true)    //
 @EntityListeners(AuditingEntityListener.class)
-public class Menu extends BaseEntity2 implements Auditable2 {
+public class Review extends BaseEntity2 implements Auditable2 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long meIdx;
-    private String resa_bis_name;
-    private String meName;
-    private String meContent;
-    private String mePrice;
-
+    private Long revIdx;
+    private String revNick;
+    private String revPhoto;
+    private int revLike;
+    private String revContent;
+    private double revScore;
 
 }

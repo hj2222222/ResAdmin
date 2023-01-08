@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,11 +27,12 @@ public class MenuApiLogicService extends BaseService<MenuApiRequest, MenuApiResp
     private MenuApiResponse response(Menu menu){
         MenuApiResponse menuApiResponse = MenuApiResponse.builder()
                 .meIdx(menu.getMeIdx())
+                .resaBisName(menu.getResa_bis_name())
                 .meName(menu.getMeName())
                 .meContent(menu.getMeContent())
                 .mePrice(menu.getMePrice())
-                .meIdx2(menu.getMeIdx2())
                 .regDate(menu.getRegDate())
+                .updateDate(menu.getUpdateDate())
                 .build();
         return menuApiResponse;
     }
@@ -49,8 +51,9 @@ public class MenuApiLogicService extends BaseService<MenuApiRequest, MenuApiResp
     }
 
     @Override
-    public Header<MenuApiResponse> read(Long id) {
-        return null;
+    public Header<MenuApiResponse> read(Long meIdx) {
+        return baseRepository.findById(meIdx).map(menu -> response(menu))
+                .map(Header::OK).orElseGet(()->Header.ERROR("데이터 없음"));
     }
 
 
@@ -75,12 +78,29 @@ public class MenuApiLogicService extends BaseService<MenuApiRequest, MenuApiResp
 //    }
     @Override
     public Header<MenuApiResponse> update(Header<MenuApiRequest> request) {
-        return null;
+        MenuApiRequest menuApiRequest = request.getData();
+        Optional<Menu> menu = menuRepository.findByMeName(menuApiRequest.getMeName());
+        System.out.println(menu);
+        return menu.map(
+                        user->{
+                            user.setMeName(menuApiRequest.getMeName());
+                            user.setMeContent(menuApiRequest.getMeContent());
+                            user.setMePrice(menuApiRequest.getMePrice());
+                            return user;
+                        }).map(user-> baseRepository.save(user))
+                .map(user->response(user))
+                .map(Header::OK)
+                .orElseGet(()->Header.ERROR("데이터 없음")
+                );
     }
 
 
-    public Header<MenuApiResponse> delete(Long id) {
-       return null;
+    public Header delete(Long id) {
+        Optional<Menu> menu = menuRepository.findById(id);
+        return menu.map(user->{
+            baseRepository.delete(user);
+            return Header.Ok();
+        }).orElseGet(()->Header.ERROR("에러!"));
     }
 
     public Header<List<MenuApiResponse>> search(Pageable pageable){
