@@ -8,46 +8,43 @@
 <!-- header.html -->
 <div th:replace="fragment/header :: header"></div>
 <!-- header.html 끝-->
-	<div class="wrapper">
+<div class="wrapper">
 
-		<!-- aside.html 시작 -->
-		<div th:replace="fragment/aside :: aside"></div>
-		<!-- aside.html 끝 -->
+	<!-- aside.html 시작 -->
+	<div th:replace="fragment/aside :: aside"></div>
+	<!-- aside.html 끝 -->
 
-		<section class="content">
-		
-
-
-
+	<section class="content">
 
 		<div class="row">
+			<form th:action="@{'/resNoticeWriteModify/' + ${notice.binIdx}}" method="post" style="width: 100%;">
+				<input type="hidden" name="binIdx" th:value="${notice.binIdx}">
+				<div class="col-md-12">
+					<article class="widget">
+						<header class="widget__header">
+							<h3 class="widget__title">공지사항 수정</h3>
 
-			<div class="col-md-12">
-				<article class="widget">
-					<header class="widget__header">
-						<h3 class="widget__title">공지사항 수정</h3>
-						
-					</header>
+						</header>
 
-					<div class="widget__content">
-						<input type="text" class="input-text" placeholder="공지사항 제목"  style="    padding-left: 12px;"/>
+						<div class="widget__content">
+							<input type="text" name="binTitle" class="input-text" th:value="${notice.binTitle}" style="padding-left: 12px;">
 
-						<textarea class="textarea" rows="6" placeholder="공지사항 내용" style="padding-left: 12px; height: 500px;"></textarea>
+							<textarea class="textarea" name="binContent" rows="6" th:text="${notice.binContent}" style="resize:none;padding-left: 12px; height: 500px;"></textarea>
 
-						<div style="width: 100%;">
-							<div style="text-align: right;">
-								<a href="res_notice.html" class="btn cyan small" style="margin: 0;">뒤로가기</a>
-								<a href="res_notice.html" class="btn red small" style="margin: 0;">수정완료</a>
+							<div style="width: 100%;">
+								<div style="text-align: right;">
+									<!--								<a href="res_notice.html" class="btn cyan small" style="margin: 0;">뒤로가기</a>-->
+									<input type="hidden" name="_method" value="put" />
+									<button type="submit"><a class="btn red small" style="margin: 0;color: white">수정완료</a></button>
+								</div>
 							</div>
 						</div>
-					</div>
 
-				</article>
-			</div>
+					</article>
+				</div>
+			</form>
 		</div>
-
 	</section> <!-- /content -->
-	
 </div> <!-- /wrapper -->
 
 <!--footer.html 시작-->
