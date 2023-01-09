@@ -38,22 +38,21 @@
                 </p>
             </div>
             <div class="main-stats__stat col-lg-3 col-md-12 col-sm-12" style="padding-bottom: 0;">
-                <h3 class="stat__title" style="margin-bottom: 16px;"><a href="/notice" style="text-decoration: none; color: #9a9a9a;">Notice</a></h3>
-                <div style="display: flex;
-					font-size: 11px; color: black; margin-bottom: 9px; ">
-                    <div style="font-weight: bold;">[필독] 캐치테이블 이용약관 개정 안내</div>
-                    <div style="margin-left: auto;">2022-12-15</div>
+                <h3 class="stat__title" style="margin-bottom: 16px;"><button type="button" onclick="sendit()" style="text-decoration: none; color: #9a9a9a;">Notice</button></h3>
+                <div id="itemList">
+                    <div v-for="dto in itemList">
+                        <div style="display: flex;
+                            font-size: 11px; color: black; margin-bottom: 9px; ">
+                            <p id="noIdx" style="display: none"> {{dto.noIdx}}</p>
+                            <div style="font-weight: bold;">{{dto.noTitle}}</div>
+                            <div style="margin-left: auto;">{{dto.regDate}}</div>
+                        </div>
+                    </div>
                 </div>
-                <div style="display: flex;
-					font-size: 11px; color: black; margin-bottom: 9px; ">
-                    <div style="font-weight: bold;"><a href="/noticeReview" style="color: black; text-decoration: none; ">[공지] 노쇼 삼진 아웃 제도 & 노쇼아웃 플러스 제도 안내</a></div>
-                    <div style="margin-left: auto;">2022-12-21</div>
-                </div>
-                <div  style="display: flex;
-					font-size: 11px; color: black; margin-bottom: 9px; ">
-                    <div style="font-weight: bold;">[안내] 리뷰 게시판의 신고/차단 기준 안내</div>
-                    <div style="margin-left: auto;">2022-12-15</div>
-                </div>
+            </div>
+            <div id="showPage" class="card-header" style="display: none">
+                <i class="fas fa-table me-1"></i>
+                총 {{totalPages}}페이지 중 {{currentPage}}페이지
             </div>
         </div>
         <div class="col-xl-8 col-lg-7">
@@ -74,5 +73,13 @@
 <!--footer.html 시작-->
 <div th:replace="fragment/footer :: footer"></div>
 <!--footer.html 끝-->
+<script src="https://unpkg.com/vue@3"></script>
+<script src="/js/notice.js"></script>
+<script>
+    function sendit(){
+        // let love = document.getElementById('noIdx').innerText;
+        location.href='notice';
+    }
+</script>
 </body>
 </html>

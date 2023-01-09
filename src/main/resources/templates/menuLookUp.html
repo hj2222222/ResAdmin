@@ -44,7 +44,7 @@
                            font-size: 22px;"></i>
 							</label>
 						</div>
-						<a href="/regMenu" class="btn blue small" style="margin: 0;
+						<a href="menuLookUp/regMenu" class="btn blue small" style="margin: 0;
                      position: absolute;
                      top: 12px;
                      right: 34px;
@@ -69,8 +69,9 @@
                                        margin-right: 58px;">
 											<button class="btn cyan small" style="margin: 0; margin-bottom: 10px; color: #ffffff;
                                        " type="button" onclick="sendit()">메뉴 수정</button>
-											<a id="menuDelBtn" class="btn red small" style="margin: 0;color: white;
-                                       ">메뉴 삭제</a>
+											<!--											<input type="hidden" name="_method" value="delete" />-->
+											<button onclick="deleteIt()"><a class="btn red small" style="margin: 0;color: white;
+                                       ">메뉴 삭제</a></button>
 										</div>
 									</div>
 								</div> <!-- /social-msg -->
@@ -106,7 +107,7 @@
 <script>
 	function sendit(){
 		let love = document.getElementById('meIdx').innerText;
-		location.href='menuModify/'+love;
+		location.href='menuModify'+love;
 	}
 </script>
 </body>

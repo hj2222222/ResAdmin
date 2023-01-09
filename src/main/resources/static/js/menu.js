@@ -4,11 +4,12 @@ window.onload = function(){
 }
 
 function sendit(){
-
+    const resaBisName = document.getElementById("resaBisName").innerText;
     const meName = document.getElementById("meName");
     const mePrice = document.getElementById("mePrice");
     const meContent = document.getElementById("meContent");
 
+    console.log(resaBisName);
     console.log(meName.value);
     console.log(mePrice.value);
     console.log(meContent.value);
@@ -33,6 +34,7 @@ function sendit(){
             "resultCode":"ok",
             "description":"정상",
             "data":{
+                "resaBisName":`${resaBisName}`,
                 "meName":`${meName.value}`,
                 "meContent":`${meContent.value}`,
                 "mePrice":`${mePrice.value}`

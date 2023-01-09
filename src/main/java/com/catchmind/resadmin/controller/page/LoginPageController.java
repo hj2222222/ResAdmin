@@ -50,7 +50,7 @@ public class LoginPageController {
             String resaBisName = resAdminApiLogicService.read(resaUserid, resaUserpw).getData().getResaBisName();
             session.setAttribute("id",resaUserid);
             session.setAttribute("name",resaBisName);
-            return "redirect:/menuLookUp";
+            return "redirect:/";
         }else{
             return "redirect:/login";
         }

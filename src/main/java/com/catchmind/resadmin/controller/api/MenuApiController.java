@@ -11,7 +11,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -54,6 +53,10 @@ public class MenuApiController extends CrudController<MenuApiRequest, MenuApiRes
         return menuApiLogicService.search(pageable);
     }
 
-
+    @Override
+    @DeleteMapping("{meIdx}")
+    public Header<MenuApiResponse> delete(@PathVariable Long meIdx) {
+        return menuApiLogicService.delete(meIdx);
+    }
 
 }

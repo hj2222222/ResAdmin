@@ -7,11 +7,11 @@
 <!-- header.html -->
 <div th:replace="fragment/header :: header"></div>
 <!-- header.html 끝-->
-	<div class="wrapper">
-        <!-- aside.html 시작 -->
-        <div th:replace="fragment/aside :: aside"></div>
-        <!-- aside.html 끝 -->
-		<section class="content">
+<div class="wrapper">
+    <!-- aside.html 시작 -->
+    <div th:replace="fragment/aside :: aside"></div>
+    <!-- aside.html 끝 -->
+    <section class="content">
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 <div class="container-fluid">
@@ -22,42 +22,26 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                        <tr>
-                                            <th class="firstTh">번호</th>
-                                            <th class="secondTh">분류</th>
-                                            <th class="thirdTh">내용</th>
-                                            <th class="fourTh">작성자</th>    
-                                        </tr>
+                                    <tr>
+                                        <th class="firstTh">번호</th>
+                                        <th class="secondTh">분류</th>
+                                        <th class="thirdTh">내용</th>
+                                        <th class="fourTh">작성자</th>
+                                    </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th class="firstTh">1</th>
-                                            <td class="secondTh">공지</td>
-                                            <td class="thirdTh"><a href="#" style="text-decoration: none; color: #858796;">리뷰 작성 기한 안내</a></td>
-                                            <td class="fourTh">캐치테이블</td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th class="firstTh">2</th>
-                                            <td class="secondTh">이벤트</td>
-                                            <td class="thirdTh"><a href="#" style="text-decoration: none; color: #858796;">캐치테이블 2주년 이벤트</a></td>
-                                            <td class="fourTh">캐치테이블</td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th class="firstTh">3</th>
-                                            <td class="secondTh">공지</td>
-                                            <td class="thirdTh"><a href="#" style="text-decoration: none; color: #858796;">리뷰 작성 기한 안내</a></td>
-                                            <td class="fourTh">캐치테이블</td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th class="firstTh">4</th>
-                                            <td class="secondTh">공지</td>
-                                            <td class="thirdTh"><a href="/noticeReview" style="text-decoration: none; color: #858796;">노쇼 삼진 아웃 제도 & 노쇼아웃 플러스 제도 안내</a></td>
-                                            <td class="fourTh">캐치테이블</td>
-                                        </tr>
+                                    <tbody id="itemList">
+                                    <tr v-for="dto in itemList">
+                                        <th class="firstTh">{{dto.noIdx}}</th>
+                                        <td class="secondTh">공지</td>
+                                        <td class="thirdTh"><a href="/noticeReview" style="text-decoration: none; color: #858796;">{{dto.noTitle}}</a></td>
+                                        <td class="fourTh">캐치테이블</td>
+
+                                    </tr>
                                     </tbody>
+                                    <div id="showPage" class="card-header" style="display: none">
+                                        <i class="fas fa-table me-1"></i>
+                                        총 {{totalPages}}페이지 중 {{currentPage}}페이지
+                                    </div>
                                 </table>
                             </div>
                         </div>
@@ -65,29 +49,31 @@
                 </div>
             </div>
         </div>
-    </div>
+</div>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
             </div>
         </div>
     </div>
-    <!--footer.html 시작-->
-    <div th:replace="fragment/footer :: footer"></div>
-    <!--footer.html 끝-->
+</div>
+<!--footer.html 시작-->
+<div th:replace="fragment/footer :: footer"></div>
+<!--footer.html 끝-->
+<script src="https://unpkg.com/vue@3"></script>
+<script src="/js/notice.js"></script>
 </body>
 </html>
