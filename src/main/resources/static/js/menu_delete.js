@@ -1,17 +1,13 @@
-window.onload = function(){
-    const btn = document.getElementById('menuDelBtn');
-    btn.addEventListener('click',sendit);
-}
+function deleteIt(){
 
-function sendit(){
+    const meIdx = document.getElementById("meIdx").innerText;
+    console.log(meIdx)
 
-    const meIdx = document.getElementById("meIdx");
-
-    fetch('http://localhost:9999/menuLookUp/'+ meIdx, {
+    fetch('http://localhost:9999/api/menu/'+ meIdx, {
         method: 'DELETE',
     })
         .then((res) => {
-            alert('등록성공')
+            alert('삭제성공')
             location.href='/menuLookUp';
             return;
         })

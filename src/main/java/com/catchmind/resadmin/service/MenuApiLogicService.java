@@ -1,7 +1,6 @@
 package com.catchmind.resadmin.service;
 
 
-import com.catchmind.resadmin.model.entity.Bistro;
 import com.catchmind.resadmin.model.entity.Menu;
 import com.catchmind.resadmin.model.network.Header;
 import com.catchmind.resadmin.model.network.Pagination;
@@ -27,7 +26,7 @@ public class MenuApiLogicService extends BaseService<MenuApiRequest, MenuApiResp
     private MenuApiResponse response(Menu menu){
         MenuApiResponse menuApiResponse = MenuApiResponse.builder()
                 .meIdx(menu.getMeIdx())
-                .resaBisName(menu.getResa_bis_name())
+                .resaBisName(menu.getResaBisName())
                 .meName(menu.getMeName())
                 .meContent(menu.getMeContent())
                 .mePrice(menu.getMePrice())
@@ -42,6 +41,7 @@ public class MenuApiLogicService extends BaseService<MenuApiRequest, MenuApiResp
         MenuApiRequest menuApiRequest = request.getData();
         System.out.println(menuApiRequest);
         Menu menu = Menu.builder()
+                .resaBisName(menuApiRequest.getResaBisName())
                 .meName(menuApiRequest.getMeName())
                 .meContent(menuApiRequest.getMeContent())
                 .mePrice(menuApiRequest.getMePrice())
@@ -71,7 +71,7 @@ public class MenuApiLogicService extends BaseService<MenuApiRequest, MenuApiResp
 //        return null;
 //    }
 
-//    public Header<BistroApiResponse> read(String userid, String userpw) {
+    //    public Header<BistroApiResponse> read(String userid, String userpw) {
 //        return adminUserRepository.findByUseridAndUserpw(userid, userpw).map(
 //                users-> response(users)).map(Header::OK).orElseGet(() -> Header.ERROR("아이디 또는 비림번호 화긴")
 //        );
@@ -95,8 +95,8 @@ public class MenuApiLogicService extends BaseService<MenuApiRequest, MenuApiResp
     }
 
 
-    public Header delete(Long id) {
-        Optional<Menu> menu = menuRepository.findById(id);
+    public Header delete(Long meIdx) {
+        Optional<Menu> menu = baseRepository.findById(meIdx);
         return menu.map(user->{
             baseRepository.delete(user);
             return Header.Ok();
