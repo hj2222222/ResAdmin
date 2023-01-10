@@ -5,9 +5,6 @@ import com.catchmind.resadmin.model.entity.Review;
 import com.catchmind.resadmin.model.network.Header;
 import com.catchmind.resadmin.model.network.Pagination;
 import com.catchmind.resadmin.model.network.request.ReviewApiRequest;
-
-
-
 import com.catchmind.resadmin.model.network.response.ReviewApiResponse;
 import com.catchmind.resadmin.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +13,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -34,6 +30,7 @@ public class ReviewApiLogicService extends BaseService<ReviewApiRequest, ReviewA
                 .revLike(review.getRevLike())
                 .revContent(review.getRevContent())
                 .revScore(review.getRevScore())
+                .resaBisName(review.getResaBisName())
                 .regDate(review.getRegDate())
                 .updateDate(review.getUpdateDate())
                 .build();
@@ -94,17 +91,11 @@ public class ReviewApiLogicService extends BaseService<ReviewApiRequest, ReviewA
         return null;
     }
 
-    public Header<List<ReviewApiResponse>> search(Pageable pageable){
-        Page<Review> review = baseRepository.findAll(pageable);
+    public Header<List<ReviewApiResponse>> search(String resaBisName){
+        List<Review> review = reviewRepository.findAllByResaBisName(resaBisName);
         List<ReviewApiResponse> reviewApiResponses =review.stream().map(
                 user -> response(user)).collect(Collectors.toList());
 
-        Pagination pagination = Pagination.builder()
-                .totalPages(review.getTotalPages())
-                .totalElements(review.getTotalElements())
-                .currentPage(review.getNumber())
-                .currentElements(review.getNumberOfElements())
-                .build();
-        return Header.OK(reviewApiResponses, pagination);
+        return Header.OK(reviewApiResponses);
     }
 }

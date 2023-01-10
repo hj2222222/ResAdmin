@@ -12,6 +12,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
@@ -48,10 +50,15 @@ public class MenuApiController extends CrudController<MenuApiRequest, MenuApiRes
 
 
 
-    @GetMapping("") // http://localhost:8888/api/menu?page=1
-    public Header<List<MenuApiResponse>> findAll(@PageableDefault(sort = {"meIdx"}, direction= Sort.Direction.DESC) Pageable pageable){
-        return menuApiLogicService.search(pageable);
+    @GetMapping("") // http://localhost:8888/api/menu
+    public Header<List<MenuApiResponse>> findAll(String resaBisName, HttpServletRequest request){
+        HttpSession session =request.getSession(false);
+        String name;
+        name = (String)session.getAttribute("name");
+        resaBisName = name;
+        return menuApiLogicService.search(resaBisName);
     }
+
 
     @Override
     @DeleteMapping("{meIdx}")

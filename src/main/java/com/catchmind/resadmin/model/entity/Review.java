@@ -25,5 +25,6 @@ public class Review extends BaseEntity2 implements Auditable2 {
     private int revLike;
     private String revContent;
     private double revScore;
+    private String resaBisName;
 
 }

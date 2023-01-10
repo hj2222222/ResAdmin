@@ -2,12 +2,17 @@ package com.catchmind.resadmin.controller.page;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("")
 public class PageController {
+
 
     // 식당 관리자 메인페이지
     // http://localhost:8888/index
@@ -26,8 +31,21 @@ public class PageController {
     //식당 정보 입력 페이지
     // http://localhost:8888/mypage
     @GetMapping(path = "mypage")
-    public ModelAndView mypage(){
-        return new ModelAndView("/mypage");
+    public ModelAndView mypage(HttpServletRequest request){
+        HttpSession session =request.getSession(false);
+        String id = null;
+        String name = null;
+
+        if(session == null){
+            System.out.println("세션이 없습니다.");
+            return new ModelAndView("/login");
+
+        }else{
+            id = (String)session.getAttribute("id");
+            name = (String)session.getAttribute("name");
+            System.out.println("세션이 있습니다.");
+        }
+        return new ModelAndView("/mypage").addObject("id", id).addObject("name",name);
     }
     //식당 상세정보 입력 페이지
     // http://localhost:8888/mypage2
@@ -39,8 +57,23 @@ public class PageController {
     //리뷰 조회 페이지
     // http://localhost:8888/reviewLookUp
     @GetMapping(path = "reviewLookUp")
-    public ModelAndView reviewLookUp(){
-        return new ModelAndView("/reviewLookUp");
+    public ModelAndView reviewLookUp(HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        String id = null;
+        String name = null;
+
+        if(session == null){
+            System.out.println("세션이 없습니다.");
+            return new ModelAndView("/login");
+
+        }else{
+            id = (String)session.getAttribute("id");
+            name = (String)session.getAttribute("name");
+            System.out.println("세션이 있습니다.");
+        }
+        return new ModelAndView("/reviewLookUp")
+                .addObject("id", id)
+                .addObject("name",name);
     }
 
     // 매출 페이지

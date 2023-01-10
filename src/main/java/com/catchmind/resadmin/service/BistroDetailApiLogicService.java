@@ -1,12 +1,9 @@
 package com.catchmind.resadmin.service;
 
 
-import com.catchmind.resadmin.model.entity.Bistro;
 import com.catchmind.resadmin.model.entity.BistroDetail;
 import com.catchmind.resadmin.model.network.Header;
-import com.catchmind.resadmin.model.network.request.BistroApiRequest;
 import com.catchmind.resadmin.model.network.request.BistroDetailApiRequest;
-import com.catchmind.resadmin.model.network.response.BistroApiResponse;
 import com.catchmind.resadmin.model.network.response.BistroDetailApiResponse;
 import com.catchmind.resadmin.repository.BistroDetailRepository;
 

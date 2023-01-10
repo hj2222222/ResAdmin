@@ -1,14 +1,10 @@
 package com.catchmind.resadmin.controller.api;
 
 import com.catchmind.resadmin.controller.CrudController;
-import com.catchmind.resadmin.model.entity.Menu;
 import com.catchmind.resadmin.model.entity.Review;
 import com.catchmind.resadmin.model.network.Header;
-import com.catchmind.resadmin.model.network.request.MenuApiRequest;
 import com.catchmind.resadmin.model.network.request.ReviewApiRequest;
-import com.catchmind.resadmin.model.network.response.MenuApiResponse;
 import com.catchmind.resadmin.model.network.response.ReviewApiResponse;
-import com.catchmind.resadmin.service.MenuApiLogicService;
 import com.catchmind.resadmin.service.ReviewApiLogicService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +12,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
@@ -53,10 +51,11 @@ public class ReviewApiController extends CrudController<ReviewApiRequest, Review
 
 
     @GetMapping("") // http://localhost:8888/api/reviewLookUp?page=1
-    public Header<List<ReviewApiResponse>> findAll(@PageableDefault(sort = {"revIdx"}, direction= Sort.Direction.DESC) Pageable pageable){
-        return reviewApiLogicService.search(pageable);
+    public Header<List<ReviewApiResponse>> findAll(String resaBisName, HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        String name;
+        name = (String)session.getAttribute("name");
+        resaBisName = name;
+        return reviewApiLogicService.search(resaBisName);
     }
-
-
-
 }

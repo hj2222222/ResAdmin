@@ -15,5 +15,6 @@ public class ReviewApiRequest {  // 프론트 > 백
     private int revLike;
     private String revContent;
     private double revScore;
+    private String resaBisName;
 
 }

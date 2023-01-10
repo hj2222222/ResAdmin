@@ -1,14 +1,10 @@
 package com.catchmind.resadmin.controller.api;
 
 import com.catchmind.resadmin.controller.CrudController;
-import com.catchmind.resadmin.model.entity.Bistro;
 import com.catchmind.resadmin.model.entity.BistroDetail;
 import com.catchmind.resadmin.model.network.Header;
-import com.catchmind.resadmin.model.network.request.BistroApiRequest;
 import com.catchmind.resadmin.model.network.request.BistroDetailApiRequest;
-import com.catchmind.resadmin.model.network.response.BistroApiResponse;
 import com.catchmind.resadmin.model.network.response.BistroDetailApiResponse;
-import com.catchmind.resadmin.service.BistroApiLogicService;
 import com.catchmind.resadmin.service.BistroDetailApiLogicService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
