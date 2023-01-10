@@ -1,18 +1,17 @@
 package com.catchmind.resadmin.controller.api;
 
 import com.catchmind.resadmin.dto.BisNoticeDto;
+import com.catchmind.resadmin.model.entity.BisNotice;
 import com.catchmind.resadmin.service.BisNoticeApiLogicService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 
 @Controller
-@SessionAttributes("id")
 //@RequestMapping("/api/bisNotice")    // http://localhost:8888/api/menu
 //@RequiredArgsConstructor      // private final BisNoticeApiLogicService bisNoticeApiLogicService;
 public class BisNoticeApiController {
@@ -23,25 +22,28 @@ public class BisNoticeApiController {
         this.bisNoticeApiLogicService = bisNoticeApiLogicService;
     }
 
-    @GetMapping("/resNotice")
-    public String list(Model model) {
-        List<BisNoticeDto> bisNoticeDtoList = bisNoticeApiLogicService.getNoticeList();
+    @GetMapping("/resNotice/{resaBisName}")
+    public String list(Model model, @PathVariable("resaBisName") String resaBisName) {
+        List<BisNotice> bisNoticeDtoList = bisNoticeApiLogicService.getNoticeList(resaBisName);
         model.addAttribute("postList", bisNoticeDtoList);
         return "/res_notice.html";
     }
 
-
-
     @PostMapping("/resNoticeWrite")
-    public String write(BisNoticeDto bisNoticeDto) {
+    public String write(BisNoticeDto bisNoticeDto) throws UnsupportedEncodingException {
         bisNoticeApiLogicService.savePost(bisNoticeDto);
-       return "redirect:/resNotice";
+        String resaBisName = bisNoticeDto.getResaBisName();
+        System.out.println(resaBisName);
+        String url = URLEncoder.encode(resaBisName, "UTF-8");
+        return "redirect:/resNotice/" + url;
     }
 
     @GetMapping("/resNoticeWrite")
-    public String post(HttpServletRequest request){
+    public String post(){
         return "/res_notice_write.html";
     }
+
+
 
     @GetMapping("/resNoticeWrite/{binIdx}")
     public String detail(@PathVariable("binIdx") Long binIdx, Model model){

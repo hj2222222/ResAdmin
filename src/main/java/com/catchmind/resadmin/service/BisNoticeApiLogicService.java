@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class BisNoticeApiLogicService {
@@ -25,8 +26,8 @@ public class BisNoticeApiLogicService {
     }
 
     @Transactional
-    public List<BisNoticeDto> getNoticeList(){
-        List<BisNotice> bisNoticeList = bisNoticeRepository.findAll(Sort.by(Sort.Direction.DESC, "updateDate"));
+    public List<BisNotice> getNoticeList(String resaBisName){
+        List<BisNotice> bisNoticeList = bisNoticeRepository.findAllByResaBisName(resaBisName);
         List<BisNoticeDto> bisNoticeDtoList = new ArrayList<>();
 
         for (BisNotice bisNotice : bisNoticeList) {
@@ -40,7 +41,7 @@ public class BisNoticeApiLogicService {
                     .build();
             bisNoticeDtoList.add(bisNoticeDto);
         }
-        return  bisNoticeDtoList;
+        return  bisNoticeList;
     }
 
     @Transactional
