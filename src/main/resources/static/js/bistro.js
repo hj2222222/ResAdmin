@@ -16,18 +16,12 @@ function sendit(){
 
     }
 
-    const bisName = document.getElementById("bisName");
+    const resaBisName = document.getElementById("resaBisName").innerText;
     const bisDesc = document.getElementById("bisDesc");
     const bisCategory = document.getElementById("bisCategory");
     const bisRegion = document.getElementById("bisRegion");
     const bisLunch = document.getElementById("bisLunch");
     const bisDinner = document.getElementById("bisDinner");
-
-    if (bisName.value == "") {
-        alert('식당이름 입력하세요');
-        bisName.focus()
-        return false;
-    }
 
     if (bisDesc.value == "") {
         alert('한줄소개를 입력하세요');
@@ -59,7 +53,7 @@ function sendit(){
         return false;
     }
 
-    fetch('http://localhost:8888/api/admin', {
+    fetch('http://localhost:9999/api/admin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -67,7 +61,7 @@ function sendit(){
             "resultCode":"ok",
             "description":"정상",
             "data":{
-                "bisName":`${bisName.value}`,
+                "resaBisName":`${resaBisName}`,
                 "bisDesc":`${bisDesc.value}`,
                 "bisCategory":`${bisCategory.value}`,
                 "bisRegion":`${bisRegion.value}`,

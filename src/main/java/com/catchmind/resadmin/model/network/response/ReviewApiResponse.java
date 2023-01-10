@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.bytebuddy.asm.Advice;
 
 import java.time.LocalDateTime;
 
@@ -19,7 +18,7 @@ public class ReviewApiResponse {
     private int revLike;
     private String revContent;
     private double revScore;
-
+    private String resaBisName;
     private LocalDateTime regDate;
     private LocalDateTime updateDate;
 

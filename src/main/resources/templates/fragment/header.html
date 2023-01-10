@@ -5,14 +5,14 @@
 <header th:fragment="header" class="top-bar" >
 	<a class="mobile-nav" href="#"><i class="pe-7s-menu"></i></a>
 	<div class="main-logo">캐치테이블 <span>관리자</span></div>
-	<input type="checkbox" id="s-logo" class="sw" />
+	<input type="checkbox" id="s-logo" class="sw"/>
 	<!-- 상단 프로필 -->
 	<ul class="profile">
 		<li>
 			<a class="dropdown-toggle profile__user" data-toggle="dropdown" href="#" onclick="return false;"
-			style="color: #9a9a9a; text-decoration: none;">
+			   style="color: #9a9a9a; text-decoration: none;">
 				<span class="profile__name">
-					관리자 <span>전지혜</span> <i class="pe-7s-angle-down"></i>
+					<span name="resaBisName" th:text="${session.name}"></span> <i class="pe-7s-angle-down"></i>
 				</span>
 			</a>
 			<!-- 상단 드롭다운 메뉴 -->

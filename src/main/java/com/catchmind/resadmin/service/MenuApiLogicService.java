@@ -103,17 +103,10 @@ public class MenuApiLogicService extends BaseService<MenuApiRequest, MenuApiResp
         }).orElseGet(()->Header.ERROR("에러!"));
     }
 
-    public Header<List<MenuApiResponse>> search(Pageable pageable){
-        Page<Menu> menu = baseRepository.findAll(pageable);
+    public Header<List<MenuApiResponse>> search(String resaBisName){
+        List<Menu> menu = menuRepository.findAllByResaBisName(resaBisName);
         List<MenuApiResponse> menuApiResponses =menu.stream().map(
                 user -> response(user)).collect(Collectors.toList());
-
-        Pagination pagination = Pagination.builder()
-                .totalPages(menu.getTotalPages())
-                .totalElements(menu.getTotalElements())
-                .currentPage(menu.getNumber())
-                .currentElements(menu.getNumberOfElements())
-                .build();
-        return Header.OK(menuApiResponses, pagination);
+        return Header.OK(menuApiResponses);
     }
 }
