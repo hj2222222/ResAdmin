@@ -8,10 +8,7 @@ import com.catchmind.resadmin.model.network.request.ResAdminApiRequest;
 import com.catchmind.resadmin.model.network.response.ResAdminApiResponse;
 import com.catchmind.resadmin.service.ResAdminApiLogicService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")    // http://localhost:8888/api/
@@ -31,8 +28,10 @@ public class ResAdminApiController extends CrudController<ResAdminApiRequest, Re
     }
 
     @Override
-    public Header<ResAdminApiResponse> update(Header<ResAdminApiRequest> request) {
-        return super.update(request);
+    @PutMapping("/re_password")
+    public Header<ResAdminApiResponse> update(@RequestBody Header<ResAdminApiRequest> request) {
+        System.out.println(request.getData());
+        return resAdminApiLogicService.update(request);
     }
 
     @Override
