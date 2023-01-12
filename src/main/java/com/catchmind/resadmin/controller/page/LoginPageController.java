@@ -17,6 +17,7 @@ public class LoginPageController {
 
     @Autowired
     private ResAdminApiLogicService resAdminApiLogicService;
+
     @GetMapping("")
     public ModelAndView index(HttpServletRequest request) {
         HttpSession session =request.getSession(false);
@@ -49,8 +50,14 @@ public class LoginPageController {
             HttpSession session = request.getSession();
             String resaBisName = resAdminApiLogicService.read(resaUserid, resaUserpw).getData().getResaBisName();
             session.setAttribute("id",resaUserid);
+            session.setAttribute("pw",resaUserpw);
             session.setAttribute("name",resaBisName);
-            return "redirect:/";
+            System.out.println(resaUserpw);
+            if(resaUserpw.equals("1234")){
+                return "redirect:/rePassword";
+            }else{
+                return "redirect:/";
+            }
         }else{
             return "redirect:/login";
         }
